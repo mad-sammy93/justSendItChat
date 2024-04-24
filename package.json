@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon src/api/app.js",
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.19.2",
     "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
     "vue": "^3.4.21"
   },
   "devDependencies": {
