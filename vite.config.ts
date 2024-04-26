@@ -1,6 +1,8 @@
+
+import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { fileURLToPath, URL } from 'node:url'
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,23 +11,12 @@ export default defineConfig({
     port: 5150,
     host: '0.0.0.0',
     proxy: {
-      // '^/fallback/.*': {
-      //   target: 'http://jsonplaceholder.typicode.com',
-      //   changeOrigin: true,
-      //   rewrite: (path) => path.replace(/^\/fallback/, ''),
-      // },
-      // '/api': {
-      //   target: 'http://jsonplaceholder.typicode.com',
-      //   changeOrigin: true,
-      //   configure: (proxy, options) => {
-      //     // proxy will be an instance of 'http-proxy'
-      //   },
-      // },
-      // Proxying websockets or socket.io: ws://localhost:5173/socket.io -> ws://localhost:5174/socket.io
-      // '/socket.io': {
-      //   target: 'ws://localhost:5174',
-      //   ws: true,
-      // },
+      '/api': {
+        target: 'http://api:5050',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
     }
   },
   css: {
@@ -37,7 +28,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  base: '/'
 })

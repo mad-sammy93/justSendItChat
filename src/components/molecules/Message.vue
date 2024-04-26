@@ -22,12 +22,13 @@ const props = defineProps({
   border-radius: 10px
 
   &--left
-    margin-left: 10px
+    margin: 10px auto 10px 5px
     max-width: 330px
     background-color: #7a7a7a
 
   &--right
-    margin-right: 10px
-    background-color: #877a7a
+    margin: 10px 5px 10px auto    
+    background-color: #ae2d2d
+    width: auto
     max-width: 330px
 </style>
